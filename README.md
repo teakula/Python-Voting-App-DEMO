@@ -38,6 +38,21 @@ Run the following command to create the deployments and services. Note it will c
 kubectl create -f k8s-specifications/
 ```
 
+Expose the application For the "result" service:
+
+```shell
+kubectl port-forward service/result 31001:5001
+```
+
+http://localhost:31001
+
+Expose the application For the "vote" service:
+```shell
+kubectl port-forward service/vote 31000:5000
+```
+
+http://localhost:31000
+
 The `vote` web app is then available on port 31000 on each host of the cluster, the `result` web app is available on port 31001.
 
 To remove them, run:
